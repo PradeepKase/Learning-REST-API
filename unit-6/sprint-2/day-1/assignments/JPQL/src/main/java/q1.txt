@@ -1,0 +1,7 @@
+Q1/- What are the limitations of EntityManager methods to perform CRUD operations with
+DB?
+
+EntityManager methods are not able to perform CRUD operation directly they can only  operate with the help of
+ entity class
+ 
+ EntityManager methods are limited to specific persistence context.

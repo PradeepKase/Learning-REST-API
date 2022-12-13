@@ -1,0 +1,20 @@
+    Q2 => What is the POM, Explain the basic properties of the pom.xml file in Maven based
+    application.
+    
+    Ans =>     POM is an acronym for Project Object Model. The pom.xml file contains information of project and configuration
+            information for the maven to build the project such as dependencies, build directory, source directory, test source
+            directory, plugin, goals etc.
+            
+            (i) project :-  It is the root element of pom.xml file.
+            (ii) modelVersion :- It is the sub element of project. It specifies the modelVersion. It should be set to 4.0.0.
+            (iii) groupId :- It is the sub element of project. It specifies the id for the project group.
+            (iv) artifactId :- It is the sub element of project. It specifies the id for the artifact (project). An artifact is something that is either
+            produced or used by a project. Examples of artifacts produced by Maven for a project include: JARs, source
+            and binary distributions, and WARs.
+            (v) version :- It is the sub element of project. It specifies the version of the artifact under given group.
+            (vi) packaging :- defines packaging type such as jar, war etc.
+            (vii) name :- defines name of the maven project.
+            (viii) url :- defines url of the project.
+            (ix) dependencies :- defines dependencies for this project.
+            (x) dependency :- defines a dependency. It is used inside dependencies.
+            (xi) scope :- defines scope for this maven project. It can be compile, provided, runtime, test and system.

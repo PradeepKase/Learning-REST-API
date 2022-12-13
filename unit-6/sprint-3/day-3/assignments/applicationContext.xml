@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+      <!--
+        <bean id="c" class="com.masai.Car"/>
+        <bean id="b" class="com.masai.Bike"/>
+        <bean id="tr" class="com.masai.Travel">
+        <property name="No_person" value="2"/>
+        <property name="v" ref="b"/>
+        </bean>
+        
+        
+        <bean id="tr2" class="com.masai.Travel">
+        <property name="No_person" value="5"/>
+        <property name="v" ref="c"/>
+        
+        </bean>
+        
+        
+        
+        <bean id="db" class="com.masai.DAO.DAObean" />
+		<bean id="sb" class="com.masai.service.ServiceBean" >
+		<property name="dao" ref="db"/>
+		</bean>
+		<bean id="pb" class="com.masai.presentaion.PresentationBean" >
+		<property name="service" ref="sb"/>
+		</bean>
+        
+        -->
+        
+        <bean id="s" class="dummy.Student">
+        <constructor-arg value="pradeep"/>
+        <constructor-arg value="1158"/>
+        <constructor-arg value="98"/>
+        </bean>
+        
+        
+        <bean id="c" class="dummy.College">
+         <property name="collage_name" value="Pes"/>
+         <property name="collage_address" value="banglore"/>
+         <property name="student" ref="s"/>
+        </bean>
+      
+        
+</beans>

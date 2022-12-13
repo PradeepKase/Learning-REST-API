@@ -1,0 +1,96 @@
+## Problem 2 : Explain the Following with an Example :
+
+- What do you mean by the IOC ? :
+- What is Dependency Injection ? :
+- Explain the life cycle of the Spring Bean ?
+
+Ans:In general when the class is dependent on other class the dependent class create object of dependency class
+directly, and then uses(call) its methods, it is called dependecy object created in the main control. But if some extenal 
+entity is taking care of creating dependency object then we say that controll is inerted to some externa entity this is called IOC
+
+What is Dependency Injection ?
+Ans: If external entity will push the dependency object to the dependent class (configuring
+the object inside some container. and the container will push the dependency object to the
+dependent class).
+we have 3 types of dependency injection
+1.simple type(primitive, String)
+2.User defined type object(College, Student)
+3.Cpllection type dependency(list, set, map)
+
+ex:
+
+app config class:
+@Configuration
+@ComponentScan(basePackages = "assaignment")
+public class AppConfig {
+
+}
+
+Vhecle Interface:
+public interface Vehicle {
+public void go();
+}
+
+Travel Class:
+@Service
+@Scope("prototype")
+public class Travel {
+	@Autowired
+	@Qualifier("bike") 
+	private Vehicle v; //here we can store one of its implemented class obj.
+	// simple value type dependency
+	@Value("1")
+	private int No_person;
+
+	public void journey() {
+		v.go();
+		System.out.println("Jounrney started...");
+		System.out.println("no_person"+ No_person);
+	}
+}
+
+bike class:
+@Repository
+public class Bike implements Vehicle {
+	
+	public void ride() {
+		System.out.println("ride started....");
+		}
+
+	
+	
+	@Override
+	public void go() {
+		// TODO Auto-generated method stub
+		ride();
+	}
+
+}
+
+mian class:
+public class Main {
+public static void main(String[] args) {
+	ApplicationContext ctx= new AnnotationConfigApplicationContext(AppConfig.class);
+     Travel tr=ctx.getBean(Travel.class);
+     tr.journey();
+     ((AbstractApplicationContext) ctx).close();
+}
+}
+
+
+
+Explain the life cycle of the Spring Bean ?
+Ans:Spring container will control the life-cycle of a spring bean, i.e. from instantiation to
+destruction.
+
+Life-cycle of a spring bean has 5 stages:
+1. Does not exist:bean object is in singletone scope
+2. Instantiated:Spring container loads the spring bean class into the memory and creates the bean
+class object.
+3. Initialized :If inside the spring bean class any user-defined init-method is configured , spring
+container will call that method.
+4. Service: Here spring container provides the bean object reference to the caller, then caller can
+call its business method on that bean object
+5. Destroy: user-defined destroyed method calls
+
+

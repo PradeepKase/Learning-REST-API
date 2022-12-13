@@ -1,0 +1,125 @@
+Q1.Explain the Java-based MVC architecture in Web application development.
+Ans:
+client will basically generate a request which is http request so it will got to webserver which has webcontainer(servlet)
+here we need to create  CONTROLLER class which is called servelt implemented class which capture the user input,validate the input,procesing data and then
+it will got to sevice layer classes -->DAL classes(implemented by heibernate) this DAL layer take the data from database ,DB give information to DAL---SL-->servelet. 
+when the JSP was not there in that time servelet itself creats the dynamic Html based on the process data and render it to HTMl when JSP introduced then 
+servelet will take this processed data and after getting the responce from the SL classes it will forward that to the JSP. JSP is going to take the data 
+and compose that dynamic Html  and transfer this data to client.
+
+In traditional web app, all the activity will be taken care by the servlet. so, with the traditional web app, if multiple request comes to a servlet, it will
+be the burden to maintain all the logics, so to simplify the role of servelt sun-micro s/m comes with another technology called JSP.
+
+initialy JSP invented to replace the Servlet, but very soon developers realised that instead of replacing the Servlet with JSP, JSP should complement the Servlet. 
+And Sun-microsystem has invented a pattern called MVC patten to simplify the Java based Webapplication.
+
+Q2.How Spring-MVC simplifies Java-based Web application development.
+Ans:
+In traditional mvc based webapplication developers need to write the Servlet class which will have all the flow control logic and configure that servlet 
+inside our application.
+
+whereas in spring-mvc framework developers need not  develop any Servlet class, instead Spring-mvc f/w has given 
+a Servlet which will have all the flow control logic. (DispatcherServlet)
+
+
+
+Q3.What is the role of ServletContainer in web application development?
+Ans:
+Servlets and the Servlet Container:
+Unlike a Java client program, a servlet has no static main() method. Therefore, a servlet must execute under the control of an external container.
+
+Servlet containers, sometimes referred to as servlet engines, execute and manage servlets. The servlet container calls servlet methods and provides services 
+that the servlet needs while executing. A servlet container is usually written in Java and is either part of a Web server (if the Web server is also written in Java) 
+or is otherwise associated with and used by a Web server. OC4J includes a fully standards-compliant servlet container.
+
+The servlet container provides the servlet with easy access to properties of the HTTP request, such as its headers and parameters. When a servlet is called, 
+such as when it is specified by URL, the Web server passes the HTTP request to the servlet container. The container, in turn, passes the request to the servlet. 
+In the course of managing a servlet, a servlet container performs the following tasks:
+
+It creates an instance of the servlet and calls its init() method to initialize it.
+
+It constructs a request object to pass to the servlet. The request includes, among other things:
+
+Any HTTP headers from the client
+
+Parameters and values passed from the client (for example, names and values of query strings in the URL)
+
+The complete URI of the servlet request
+
+It constructs a response object for the servlet.
+
+It invokes the servlet service() method. Note that for HTTP servlets, the generic service method is usually overridden in the HttpServlet class. 
+The service method dispatches requests to the servlet doGet() or doPost() methods, depending on the HTTP header in the request (GET or POST).
+
+It calls the destroy() method of the servlet to discard it, when appropriate, so that it can be garbage collected. (For performance reasons, 
+it is typical for a servlet container to keep a servlet instance in memory for reuse, rather than destroying it each time it has finished its task. 
+It would be destroyed only for infrequent events, such as Web server shutdown.)
+
+Figure 1-1 shows how a servlet relates to the servlet container and to a client, such as a Web browser. When the Web listener is the Oracle HTTP 
+Server (powered by Apache), the connection to the OC4J servlet container goes through the mod_oc4j module. See the Oracle HTTP Server Administrator's Guide for details.
+
+
+
+Q4.Write a small note on Servlet and JSP.
+Ans:
+Introduction to Servlets:
+Servlet is a server-side Java program module that handles client requests and implements the servlet interface. Servlets can respond to any type of request,
+ and they are commonly used to extend the applications hosted by web servers.
+A client sends a request to the server and the server generates the response, analyses it and sends the response back to the client.
+
+
+Servlet Life Cycle:
+The entire life cycle of a servlet is managed by the Servlet container which uses the javax.servlet.Servlet interface to understand the Servlet object and manage it.
+ Servlet Life Cycle: The Servlet life cycle mainly goes through four stages:
+
+Loading a Servlet
+When a server starts up, the servlet container deploy and loads all the servlets.
+
+Initializing the Servlet
+Next, a servlet is initialized by calling the init() method. Servlet.init() method is called by the Servlet container to notify that this S
+ervlet instance is instantiated successfully and is about to put into service.
+
+Request handling
+Then, servlet calls service() method to process a client’s request and is invoked to inform the Servlet about the client requests.
+
+Destroying the servlet
+Finally, a servlet is terminated by calling the destroy(). The destroy() method runs only once during the lifetime of a Servlet and signals the end of the 
+Servlet instance.
+
+
+init() and destroy() methods are called only once. Finally, a servlet is garbage collected by the garbage collector of the JVM. So this concludes 
+the life cycle of a servlet. Now, let me guide you through the steps of creating Java servlets.
+
+
+
+JSP or Java Server Pages is a technology that is used to create web application just like Servlet technology.
+ It is an extension to Servlet – as it provides more functionality than a servlet such as expression language, JSTL, etc.
+ A JSP page consists of HTML tags and JSP tags. The JSP pages are easier to maintain than Servlet because we can separate designing and development.
+
+Now, as we know what JSP is, let’s compare JSP with Servlets and understand which is best suitable for the web.
+
+  Servlet and JSP Tutorial: Advantages of JSP Over Servlets
+     JSP	                                         Servlets
+Extension to Servlet	                  Not an extension to servlet
+Easy to Maintain	                  Bit complicated
+No need to recompile or redeploy	  The code needs to be recompiled
+Less code than a servlet	          More code compared to JSP
+
+
+Q5: What do you mean by Webservices, Explain the similarities and differences between a
+Web application and Webservices.
+web sevice is the part of web application.
+Ans:
+Similarities/differences bt Webapplication and Webservice:
+===============================================
+
+---WS is also a type of WA, that can generate dynamic result as raw data(json, xml, text) instead of generating a html response (webpage)
+
+--WA generates the view(webpage) whereas WS generates raw data.
+
+--this raw data generated by the WS can be reused inside any other WA or any other type of application developed in any technology.
+
+Indigo -----> html   (Webapplication) : it is for enduser
+            -----> raw data (Webservices)  :- it is for any other application
+Yatra 
+ :----------Webapplication 

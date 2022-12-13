@@ -1,0 +1,19 @@
+    Q1 => Explain the Build process of the Java Application, How the Maven helps in the
+    application build?
+        
+    Ans => The build process of any Java Application includes :
+            (i) Writing Source Code.
+            (ii) Adding External Jar files to the classpath.
+            (iii) Compiling the Code.
+            (iv) Prepare Test Cases Manually.
+            (v) Add unit testing related jar files inside the class path.
+            (vi) Compile and Run the Test Cases.
+            (vii) arrange out code in standard folder Structure.
+            (viii) Do the packaging : build jar and war files.
+            (ix) Deploy to server.
+            
+        Maven helps in the following :
+            (i) Making the build process easy.
+            (ii) Providing a uniform build system.
+            (iii) Providing quality project information.
+            (iv) Encouraging better development practices.

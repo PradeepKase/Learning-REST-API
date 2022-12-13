@@ -1,0 +1,10 @@
+    Q3 => What are the different phases of the Maven life cycle?
+    
+    Ans =>     (i) Validate: This step validates if the project structure is correct. For example – It checks if all the dependencies have been downloaded and are available in the local repository.
+            (ii) Compile: It compiles the source code, converts the .java files to .class and stores the classes in target/classes folder.
+            (iii) Test: It runs unit tests for the project.
+            (iv) Package: This step packages the compiled code in distributable format like JAR or WAR.
+            (v) Integration test: It runs the integration tests for the project.
+            (vi) Verify: This step runs checks to verify that the project is valid and meets the quality standards.
+            (vii) Install: This step installs the packaged code to the local Maven repository.
+            (viii) Deploy: It copies the packaged code to the remote repository for sharing it with other developers
